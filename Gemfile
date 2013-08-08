@@ -1,17 +1,16 @@
-MODE = 'git'  #REMOTE MODE
-#MODE = 'path' #LOCAL MODE
-
-# REMOTE CONFIGURATION (DEFAULT)
-GEMS_PATH = 'http://rubygems.org'
-SPREE_PATH = 'https://github.com/spree'
-SPREE_BANNER_PATH = 'https://github.com/damianogiacomello'
-
-## lOCAL PQR CONFIGURATION
-#GEMS_PATH = 'http://localhost/rubygems/'
-#SPREE_PATH = 'file:///home/pqr/work/jaf/spree'
-#SPREE_BANNER_PATH = GEMS_PATH
-
-########################################################################
+CONFIG = :pqr
+###########################################################################
+case CONFIG
+when :pqr
+  GEMS_PATH = 'http://localhost/rubygems/'
+  SPREE_PATH = 'file:///home/pqr/work/jaf/spree'
+  SPREE_BANNER_PATH = 'file:///home/pqr/work/jaf/spree'
+else
+  GEMS_PATH = 'http://rubygems.org'
+  SPREE_PATH = 'https://github.com/spree'
+  SPREE_BANNER_PATH = 'https://github.com/damianogiacomello'
+end
+###########################################################################
 
 source GEMS_PATH
 
