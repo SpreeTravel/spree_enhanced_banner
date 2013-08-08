@@ -15,7 +15,7 @@ SPREE_BANNER_PATH = 'https://github.com/damianogiacomello'
 
 source GEMS_PATH
 
-gem 'spree_banner', 		:git => "#{SPREE_BANNER_PATH}/spree_banner"
-gem 'spree_auth_devise', 	:git => "#{SPREE_PATH}/spree_auth_devise", 		:branch => '2-0-stable'
+gem 'spree_banner', 		:"#{MODE}" => "#{SPREE_BANNER_PATH}/spree_banner"
+gem 'spree_auth_devise', 	:"#{MODE}" => "#{SPREE_PATH}/spree_auth_devise", 		:branch => '2-0-stable'
 
 gemspec
