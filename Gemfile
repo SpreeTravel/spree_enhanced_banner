@@ -1,4 +1,4 @@
-CONFIG = :snc
+CONFIG = :pqr
 ###########################################################################
 case CONFIG
 when :pqr
@@ -16,7 +16,7 @@ when :raul
 else
   GEMS_PATH = 'http://rubygems.org'
   SPREE_DEVISE_PATH = 'https://github.com/spree'
-  SPREE_BANNER_PATH = 'https://github.com/radar' #TODO está dirección no existe, debe ser https://github.com/damianogiacomello
+  SPREE_BANNER_PATH = 'https://github.com/damianogiacomello'
 end
 ###########################################################################
 
