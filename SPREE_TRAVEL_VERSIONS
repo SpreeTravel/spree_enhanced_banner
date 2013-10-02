@@ -1,0 +1,4 @@
+gems:
+  spree: 2.1.1
+  spree_travel: 2.1.1
+  spree_auth_devise: 2.1.0
