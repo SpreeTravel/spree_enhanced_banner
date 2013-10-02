@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '~> ' + versions['spree']
-  s.add_dependency 'spree_banner' '~> 2.0.3'
+  s.add_dependency 'spree_banner', '~> 2.0.3'
   s.add_dependency 'spree_auth_devise', '~> ' + versions['spree_auth_devise']
 
   s.add_development_dependency 'capybara', '~> 2.1'
