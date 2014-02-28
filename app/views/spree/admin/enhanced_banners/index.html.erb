@@ -1,0 +1,16 @@
+<%= @taxon.name %>
+
+<H4>Banners</H4>
+<%= link_to "Add Banner", new_admin_taxon_enhanced_banner_path(:taxon_id => @taxon.id) %>
+<table>
+	<% @banners.each do |banner| %>
+		<tr>
+			<td>
+				<%= link_to 'Remove', admin_taxon_enhanced_banner_path(:taxon_id => @taxon.id, :id => banner.id), method: :delete %>
+			</td>
+			<td>
+				<%= image_tag banner.attachment.url(:banner_preview) %>
+			</td>
+		</tr>
+	<% end %>
+</table>

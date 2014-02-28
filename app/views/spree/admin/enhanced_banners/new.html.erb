@@ -1,0 +1,4 @@
+<%= form_for [:admin, @image], :url => admin_taxon_enhanced_banners_path(:taxon_id => @taxon.id), :html => { :multipart => true } do |form| %>
+  <%= form.file_field :attachment %>
+  <%= form.submit "Add Banner" %>
+<% end %>

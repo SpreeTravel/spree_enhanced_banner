@@ -1,0 +1,12 @@
+<table>
+	<% @taxons.each do |taxon| %>
+		<tr>
+			<td>
+				<%= link_to "View Banners", admin_taxon_enhanced_banners_path(:taxon_id => taxon.id) %>
+			</td>
+			<td>
+				<%= taxon.name %>
+			</td>
+		</tr>
+	<% end %>
+</table>
