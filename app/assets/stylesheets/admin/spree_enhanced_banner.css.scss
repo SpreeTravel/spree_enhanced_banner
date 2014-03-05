@@ -1,0 +1,27 @@
+/*
+ *= require admin/spree_backend
+*/
+
+#container-taxon-table{
+	margin-top: 30px;
+
+	#taxon-table{
+		width: 500px;
+		tr{
+			th{
+				&:last-child{
+					width:100px;
+				}
+			}
+		}
+	}
+}
+
+.page-info{
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#banners-table{
+	margin-top: 10px;
+}

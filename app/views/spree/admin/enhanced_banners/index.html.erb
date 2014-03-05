@@ -1,15 +1,19 @@
-<%= @taxon.name %>
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
-<H4>Banners</H4>
+<h3>Taxon: <%= @taxon.name %></h3>
+
+<H4 class="page-info">Current banners</H4>
+
 <%= link_to "Add Banner", new_admin_taxon_enhanced_banner_path(:taxon_id => @taxon.id) %>
-<table>
+
+<table id="banners-table">
 	<% @banners.each do |banner| %>
 		<tr>
 			<td>
-				<%= link_to 'Remove', admin_taxon_enhanced_banner_path(:taxon_id => @taxon.id, :id => banner.id), method: :delete %>
+				<%= image_tag banner.attachment.url(:banner_preview) %>
 			</td>
 			<td>
-				<%= image_tag banner.attachment.url(:banner_preview) %>
+				<%= link_to 'Delete', admin_taxon_enhanced_banner_path(:taxon_id => @taxon.id, :id => banner.id), method: :delete %>
 			</td>
 		</tr>
 	<% end %>
