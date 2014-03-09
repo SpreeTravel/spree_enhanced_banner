@@ -15,25 +15,16 @@ module Spree
 					begin
 						Spree::TaxonBannerConfiguration.transaction do
 							Spree::Taxon.all.each do |taxon|
-								if taxon.taxon_banner_configuration.nil?
-									config = Spree::TaxonBannerConfiguration.new(config_params)
-									config.save
-									taxon.taxon_banner_configuration = config
-								else
-									config = Spree::TaxonBannerConfiguration.where(taxon_id: taxon.id).first
-									config.update_attributes(config_params)
-								end
+								retrive_or_create(taxon)
 								if params[:reset_indexes]
-									config = Spree::TaxonBannerConfiguration.where(taxon_id: taxon.id).first
-									config.update_attribute(:last_index, 0)
+									@configuration.update_attribute(:last_index, 0)
 								end
 							end
 
 							format.html { redirect_to edit_admin_general_settings_url, notice: 'Configuration was successfully saved.' }
 						end
 					rescue
-						@configuration = Spree::TaxonBannerConfiguration.new
-						format.html { render action: "edit" }
+						format.html { render action: "edit", notice: 'Set configuration failed.' }
 					end
 				end
 			end
@@ -41,6 +32,17 @@ module Spree
 			private
 				def config_params
 					params.require(:taxon_banner_configuration).permit(:selection_mode, :max_count)
+				end
+
+				def retrive_or_create(taxon)
+					if taxon.taxon_banner_configuration.nil?
+						@configuration =  Spree::TaxonBannerConfiguration.new(config_params)
+						@configuration.save
+						taxon.taxon_banner_configuration = @configuration
+					else
+						@configuration =  Spree::TaxonBannerConfiguration.where(taxon_id: taxon.id).first
+						@configuration.update_attributes(config_params)
+					end
 				end
 		end
 	end
