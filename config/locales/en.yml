@@ -2,4 +2,5 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  add_banner: "Add Banner"
+  enhanced_banner_settings: "Enhanced Banner Settings"

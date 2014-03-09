@@ -1,3 +1,3 @@
-source 'http://rubygems.org'
+source 'file:///home/anakin/SpreeTravelData/GlobalGemsPath/'
 
 gemspec
