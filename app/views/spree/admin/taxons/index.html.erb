@@ -8,6 +8,7 @@
 			<tr>
 				<th>Taxons</th>
 				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -18,6 +19,9 @@
 					</td>
 					<td>
 						<%= link_to "Go to banners", admin_taxon_enhanced_banners_path(:taxon_id => taxon.id) %>
+					</td>
+					<td>
+						<%= link_to "Configuration", edit_config_admin_taxon_path(:id => taxon.id) %>
 					</td>
 				</tr>
 			<% end %>
