@@ -6,15 +6,23 @@
 
 <%= link_to "Add Banner", new_admin_taxon_enhanced_banner_path(:taxon_id => @taxon.id) %>
 
-<table id="banners-table">
-	<% @banners.each do |banner| %>
+<%if @banners.count == 0 %>
+	<p>None banners added</p>
+<% else %>
+	<table id="banners-table">
 		<tr>
-			<td>
-				<%= image_tag banner.attachment.url(:banner_preview) %>
-			</td>
-			<td>
-				<%= link_to 'Delete', admin_taxon_enhanced_banner_path(:taxon_id => @taxon.id, :id => banner.id), method: :delete %>
-			</td>
+			<th></th>
+			<th></th>
 		</tr>
-	<% end %>
-</table>
+		<% @banners.each do |banner| %>
+			<tr>
+				<td>
+					<%= image_tag banner.attachment.url(:banner_preview) %>
+				</td>
+				<td>
+					<%= link_to 'Delete', admin_taxon_enhanced_banner_path(:taxon_id => @taxon.id, :id => banner.id), method: :delete %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
