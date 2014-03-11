@@ -13,7 +13,7 @@ class Spree::TaxonBannerConfiguration < ActiveRecord::Base
 			if self.selection_mode.nil?
 				self.selection_mode = "random"
 			end
-			if self.max_count == 0?
+			if self.max_count == 0
 				self.max_count = 50
 			end
 		end

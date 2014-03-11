@@ -10,7 +10,11 @@ Spree::Admin::TaxonsController.class_eval do
 
   def edit_config
 		@taxon = Spree::Taxon.find(params[:id])
-		@configuration = Spree::TaxonBannerConfiguration.new
+		if @taxon.taxon_banner_configuration.nil?
+			@configuration = Spree::TaxonBannerConfiguration.new
+		else
+			@configuration = @taxon.taxon_banner_configuration
+		end
 
 		respond_to do |format|
 			format.html
@@ -24,7 +28,7 @@ Spree::Admin::TaxonsController.class_eval do
 			begin
 				retrive_or_create(@taxon)
 				if params[:reset_indexes]
-					@config.update_attribute(:last_index, 0)
+					@configuration.update_attribute(:last_index, 0)
 				end
 
 				format.html { redirect_to admin_taxons_url, notice: 'Configuration was successfully seted.' }
