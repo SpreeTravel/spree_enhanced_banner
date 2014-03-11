@@ -2,22 +2,4 @@
 
 <h3>Set Configuration to Taxon: <%= @taxon.name %></h3>
 
-<%= form_for @configuration, :url => set_admin_taxon_path(:id => @taxon.id) do |form|%>
-	<div class="form-fields">
-	 	<div class="field">
-	 		<%= form.label :selection_mode, 'Mode' %>:
-			<%= form.select(:selection_mode, options_for_select([['Random', 'random'], ['Cycle', 'cycle']])) %>
-	 	</div>
-	 	<div class="field">
-	 		<%= form.label :max_count, 'Max Count Banners' %>:
-			<%= form.number_field :max_count, :min => 0 %>
-	 	</div>
-		<div class="field">
-			<%= label_tag :reset_indexes, 'Reset Index?' %>:
-			<%= check_box_tag(:reset_indexes) %>
-		</div>
-	</div>
-	<div class="form-actions">
-		<%= form.submit "Set Configuration" %>
-	</div>
-<% end %>
+<%= render :partial => 'spree/admin/taxons/configuration_form' %>
