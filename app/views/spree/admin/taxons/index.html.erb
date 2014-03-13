@@ -1,30 +1,9 @@
 <%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
-<h2>Select taxon to see banners</h2>
+<% content_for :page_title do %>
+  Taxons
+<% end %>
 
-<div id="container-taxon-table" data-hook="admin-container-table-add-banner-taxon">
-	<table id="taxon-table" data-hook="admin-table-add-banner-taxon">
-		<thead>
-			<tr>
-				<th class="large-col">Taxons</th>
-				<th class="medium-col"></th>
-				<th class="small-col"></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @taxons.each do |taxon| %>
-				<tr>
-					<td>
-						<%= taxon.name %>
-					</td>
-					<td>
-						<%= link_to "Go to banners", admin_taxon_enhanced_banners_path(:taxon_id => taxon.id) %>
-					</td>
-					<td>
-						<%= link_to "Configuration", edit_config_admin_taxon_path(:id => taxon.id) %>
-					</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+<div id='list-banners' data-hook>
+  <%= render :partial => 'list' %>
 </div>

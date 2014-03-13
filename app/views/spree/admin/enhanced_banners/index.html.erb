@@ -1,28 +1,18 @@
 <%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
-<h3>Taxon: <%= @taxon.name %></h3>
-
-<H4 class="page-info">Current banners</H4>
-
-<%= link_to "Add Banner", new_admin_taxon_enhanced_banner_path(:taxon_id => @taxon.id) %>
-
-<%if @banners.count == 0 %>
-	<p>None banners added</p>
-<% else %>
-	<table id="banners-table">
-		<tr>
-			<th></th>
-			<th></th>
-		</tr>
-		<% @banners.each do |banner| %>
-			<tr>
-				<td>
-					<%= image_tag banner.attachment.url(:banner_preview) %>
-				</td>
-				<td>
-					<%= link_to 'Delete', admin_taxon_enhanced_banner_path(:taxon_id => @taxon.id, :id => banner.id), method: :delete %>
-				</td>
-			</tr>
-		<% end %>
-	</table>
+<% content_for :page_title do %>
+  <%= @taxon.name %>'s Banners
 <% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to "Add Banner", new_admin_taxon_enhanced_banner_path(:taxon_id => @taxon.id), :icon => 'icon-plus' %>
+  </li>
+  <li>
+    <%= button_link_to "Back to taxons list", admin_taxons_url, :icon => 'icon-arrow-left' %>
+  </li>
+<% end %>
+
+<div id='list-banners' data-hook>
+  <%= render :partial => 'list' %>
+</div>

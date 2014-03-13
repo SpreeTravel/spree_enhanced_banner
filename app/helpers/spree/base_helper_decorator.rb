@@ -40,4 +40,12 @@ Spree::BaseHelper.module_eval do
 				images[next_index].attachment.url(:banner)
 			end
 	end
+
+	def link_to_configuration(url, options={})
+		link_to_with_icon 'icon-cog', "Configuration", url, options
+	end
+
+	def link_to_banners(url, options={})
+		link_to_with_icon 'icon-picture', "View Banners", url, options
+	end
 end

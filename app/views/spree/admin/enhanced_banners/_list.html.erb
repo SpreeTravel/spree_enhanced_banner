@@ -1,0 +1,19 @@
+
+<div class="container-table" data-hook="admin-container-table-banners-taxon">
+	<%if @banners.count == 0 %>
+		<p>None banners added</p>
+	<% else %>
+		<table class="no-border-table">
+			<% @banners.each do |banner| %>
+				<tr>
+					<td>
+						<%= image_tag banner.attachment.url(:banner_preview) %>
+					</td>
+					<td class="actions">
+						<%= link_to_delete banner, :url => admin_taxon_enhanced_banner_path(:taxon_id => @taxon.id, :id => banner.id), :no_text => true %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+</div>

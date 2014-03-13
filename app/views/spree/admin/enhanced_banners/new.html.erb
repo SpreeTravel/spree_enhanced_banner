@@ -1,12 +1,18 @@
 <%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
-<h3 class="page-info">Add new banner to taxon: <%= @taxon.name %></h3>
-
-<%= form_for [:admin, @image], :url => admin_taxon_enhanced_banners_path(:taxon_id => @taxon.id), :html => { :multipart => true } do |form| %>
-  <div class="form-fields">
-  	<%= form.file_field :attachment %>
-  </div>
-  <div class="form-actions">
-  	<%= form.submit "Add Banner" %>
-  </div>
+<% content_for :page_title do %>
+	New Banner for <%= @taxon.name %>
 <% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to "Back to taxon banners", admin_taxon_enhanced_banners_path(:taxon_id => @taxon.id), :icon => 'icon-arrow-left' %>
+  </li>
+  <li>
+    <%= button_link_to "Back to taxons list", admin_taxons_url, :icon => 'icon-arrow-left' %>
+  </li>
+<% end %>
+
+<div id='new-banner-form' data-hook>
+  <%= render :partial => 'form' %>
+</div>

@@ -1,5 +1,7 @@
 <%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
-<h3>Set Configuration to all Taxons</h3>
+<% content_for :page_title do %>
+  Configuration for all taxons
+<% end %>
 
 <%= render :partial => 'spree/admin/enhanced_banner_settings/configuration_form' %>
