@@ -1,0 +1,72 @@
+/*
+ *= require admin/spree_backend
+*/
+
+/*
+Sass. Variables and Mixins
+*/
+
+$width-table: 100px;
+$mini-width-table: (1 * $width-table); 
+$samll-width-table: (2 * $width-table); 
+$medium-width-table: (3 * $width-table); 
+$large-width-table: (4 * $width-table); 
+$big-width-table: (5 * $width-table); 
+$auto-width-table: auto; 
+
+$width-col: 10px;
+$mini-width-col: (1 * $width-col); 
+$small-width-col: (5 * $width-col); 
+$medium-width-col: (10 * $width-col); 
+$large-width-col: (20 * $width-col); 
+$big-width-col: (40 * $width-col);
+$auto-width-col: auto;
+
+@mixin set-col-width($width: $auto-width-col){
+	width: $width;
+	background: none;
+}
+
+.container-table{
+	margin-top: 30px;
+
+	.taxon-table{
+		width: $auto-width-table;
+	}
+
+	.no-border-table{
+		width: $auto-width-table;
+		td{
+			border-width: 0;
+		}
+	}
+}
+
+.mini-col{
+	@include set-col-width($mini-width-col)
+}
+
+.small-col{
+	@include set-col-width($small-width-col)
+}
+
+.medium-col{
+	@include set-col-width($medium-width-col)
+}
+
+.large-col{
+	@include set-col-width($large-width-col)
+}
+
+.big-col{
+	@include set-col-width($big-width-col)
+}
+
+.page-info{
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#banners-table{
+	margin-top: 10px;
+}

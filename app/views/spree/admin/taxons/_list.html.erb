@@ -1,0 +1,20 @@
+
+<div id="container-table" data-hook="admin-container-table-add-banner-taxon">
+	<table class="taxon-table" data-hook="admin-table-add-banner-taxon">
+		<thead>
+		</thead>
+		<tbody>
+			<% @taxons.each do |taxon| %>
+				<tr>
+					<td class="big-col">
+						<%= taxon.name %>
+					</td>
+					<td class="actions">
+						<%= link_to_banners admin_taxon_enhanced_banners_path(:taxon_id => taxon.id), :no_text => true %>
+						<%= link_to_configuration edit_config_admin_taxon_path(:id => taxon.id), :no_text => true %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

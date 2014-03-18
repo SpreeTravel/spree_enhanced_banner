@@ -3,4 +3,8 @@ FactoryGirl.define do
   #
   # Example adding this to your spec_helper will load these Factories for use:
   # require 'spree_enhanced_banner/factories'
+
+  factory :image do |f|
+  	
+  end
 end
