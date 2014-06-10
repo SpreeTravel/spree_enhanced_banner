@@ -1,5 +1,5 @@
 /*
- *= require admin/spree_backend
+ *= require spree/backend
 */
 
 /*
@@ -7,18 +7,18 @@ Sass. Variables and Mixins
 */
 
 $width-table: 100px;
-$mini-width-table: (1 * $width-table); 
-$samll-width-table: (2 * $width-table); 
-$medium-width-table: (3 * $width-table); 
-$large-width-table: (4 * $width-table); 
-$big-width-table: (5 * $width-table); 
-$auto-width-table: auto; 
+$mini-width-table: (1 * $width-table);
+$samll-width-table: (2 * $width-table);
+$medium-width-table: (3 * $width-table);
+$large-width-table: (4 * $width-table);
+$big-width-table: (5 * $width-table);
+$auto-width-table: auto;
 
 $width-col: 10px;
-$mini-width-col: (1 * $width-col); 
-$small-width-col: (5 * $width-col); 
-$medium-width-col: (10 * $width-col); 
-$large-width-col: (20 * $width-col); 
+$mini-width-col: (1 * $width-col);
+$small-width-col: (5 * $width-col);
+$medium-width-col: (10 * $width-col);
+$large-width-col: (20 * $width-col);
 $big-width-col: (40 * $width-col);
 $auto-width-col: auto;
 

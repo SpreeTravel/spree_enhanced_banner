@@ -2,6 +2,8 @@ module Spree
   module Admin
 		class EnhancedBannersController < Spree::Admin::BaseController
 
+			after_action :initialize_banner_configuration, only: [:create]
+
 			def index
 				@taxon = Spree::Taxon.find(params[:taxon_id])
 				@banners = @taxon.images
@@ -42,12 +44,17 @@ module Spree
 
 				respond_to do |format|
 		      format.html { render action: "index", notice: 'Banner was successfully removed.' }
+		      format.js { render :partial => "spree/admin/shared/destroy", notice: 'Banner was successfully removed.' }
 		    end
 			end
 
 			private
 				def image_params
 				  params.require(:image).permit(:attachment)
+				end
+
+				def initialize_banner_configuration()
+					@taxon.taxon_banner_configuration ||= Spree::TaxonBannerConfiguration.create(:taxon_id => @taxon.id)
 				end
 		end
 	end
