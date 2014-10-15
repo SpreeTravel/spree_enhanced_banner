@@ -34,9 +34,7 @@ Features
 
 - Adds a banner to the store's frontend.
 - Allows to associate a group of banners to a taxon.
-- Adds a configuration view an the backend with items to dinamically select wich banner to show, related to a taxon.
-- Shows a map with the location of the related products, and a list beneath with links to those related.
-
+- Adds a configuration view on the backend with items to dinamically select wich banner to show, related to a taxon.
 
 How to use it
 ------------
